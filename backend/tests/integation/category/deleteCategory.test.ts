@@ -9,7 +9,7 @@ import {
   vi,
 } from "vitest";
 import isAuthenticated from "../../../src/middlewares/isAuthenticated";
-import { NextFunction, Request, Response } from "express";
+import { RequestHandler } from "express";
 import { connectDB, disconnectDB } from "../../../src/configs/db";
 import Category from "../../../src/models/Category";
 import request from "supertest";
@@ -22,8 +22,8 @@ const mockAuthState = {
 
 vi.mock("../../../src/middlewares/isAuthenticated", () => {
   return {
-    default: (allowedRoles: string[]) => {
-      return (req: Request, res: Response, next: NextFunction) => {
+    default: (allowedRoles: string[]): RequestHandler => {
+      return (req, res, next) => {
         if (!mockAuthState.isLoggedIn) {
           return res
             .status(401)

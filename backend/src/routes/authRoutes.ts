@@ -8,7 +8,7 @@ import {
   googleVendorLoginRedirect,
 } from "../controllers/auth/authControllers.ts";
 
-const router = Router();
+const router: Router = Router();
 
 router.get("/google/customer", googleCustomerLogin);
 router.get("/google/customer/callback", googleCustomerLoginRedirect);

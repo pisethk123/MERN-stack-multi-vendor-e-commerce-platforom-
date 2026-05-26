@@ -1,14 +1,11 @@
-import type { Request, Response } from "express";
+import type { RequestHandler } from "express";
 import Category from "../../models/Category.ts";
 
 interface IParam {
   id: string;
 }
 
-const getCategory = async (
-  req: Request<IParam, any, any, any>,
-  res: Response,
-) => {
+const getCategory: RequestHandler<IParam, any, any, any> = async (req, res) => {
   try {
     const { id } = req.params;
 

@@ -1,13 +1,13 @@
-import type { Request, Response } from "express";
+import type { RequestHandler } from "express";
 import Category from "../../models/Category.ts";
 
 interface IParam {
   id: string;
 }
 
-const deleteCategory = async (
-  req: Request<Partial<IParam>, any, any, any>,
-  res: Response,
+const deleteCategory: RequestHandler<Partial<IParam>, any, any, any> = async (
+  req,
+  res,
 ) => {
   try {
     const { id } = req.params;

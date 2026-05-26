@@ -6,7 +6,7 @@ import deleteCategory from "../controllers/category/deleteCategory.ts";
 import isAutheticated from "../middlewares/isAuthenticated.ts";
 import getCategory from "../controllers/category/getCategory.ts";
 
-const router = Router();
+const router: Router = Router();
 
 router.get("/get_categories", getCategories);
 router.get("/get_category/:id", getCategory);

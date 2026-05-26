@@ -1,4 +1,4 @@
-import type { Request, Response } from "express";
+import type { RequestHandler } from "express";
 import type { ICategory } from "../../models/Category.ts";
 import Category from "../../models/Category.ts";
 
@@ -6,10 +6,12 @@ interface IParams {
   id: string;
 }
 
-const updateCategory = async (
-  req: Request<Partial<IParams>, any, Partial<ICategory>, any>,
-  res: Response,
-) => {
+const updateCategory: RequestHandler<
+  Partial<IParams>,
+  any,
+  Partial<ICategory>,
+  any
+> = async (req, res) => {
   try {
     const { name, description } = req.body;
     const { id } = req.params;

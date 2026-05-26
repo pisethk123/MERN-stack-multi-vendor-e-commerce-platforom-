@@ -1,10 +1,10 @@
-import type { Request, Response } from "express";
+import type { RequestHandler } from "express";
 import type { ICategory } from "../../models/Category.ts";
 import Category from "../../models/Category.ts";
 
-const addCategory = async (
-  req: Request<any, any, ICategory, any>,
-  res: Response,
+const addCategory: RequestHandler<any, any, ICategory, any> = async (
+  req,
+  res,
 ) => {
   try {
     const { name, description } = req.body;

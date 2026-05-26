@@ -13,6 +13,7 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
       callbackURL: process.env.GOOGLE_ADMIN_CALLBACK_URL || "",
     },
+    // @ts-ignore
     async (accessToken, refreshToken, profile, done) => {
       try {
         const admin = await Admin.findOne({

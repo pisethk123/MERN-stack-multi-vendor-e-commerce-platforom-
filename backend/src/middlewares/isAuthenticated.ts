@@ -1,9 +1,9 @@
-import type { NextFunction, Request, Response } from "express";
+import type { RequestHandler } from "express";
 
 const isAuthenticated = (
   allowedRoles: Array<"customer" | "vendor" | "admin">,
-) => {
-  return (req: Request, res: Response, next: NextFunction) => {
+): RequestHandler => {
+  return (req, res, next) => {
     if (!req.isAuthenticated()) {
       return res
         .status(401)

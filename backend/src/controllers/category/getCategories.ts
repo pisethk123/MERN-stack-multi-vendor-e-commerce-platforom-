@@ -1,4 +1,4 @@
-import type { Request, Response } from "express";
+import type { RequestHandler } from "express";
 import Category from "../../models/Category.ts";
 import searchString from "../../utils/searchString.ts";
 
@@ -7,9 +7,9 @@ interface IQuery {
   page: string;
 }
 
-const getCategories = async (
-  req: Request<any, any, any, Partial<IQuery>>,
-  res: Response,
+const getCategories: RequestHandler<any, any, any, Partial<IQuery>> = async (
+  req,
+  res,
 ) => {
   try {
     const { search, page } = req.query;
