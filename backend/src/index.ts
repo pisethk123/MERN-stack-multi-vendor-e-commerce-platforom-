@@ -11,6 +11,7 @@ import "./configs/googleAdminStrategy.ts";
 
 import authRoutes from "./routes/authRoutes.ts";
 import categoryRoutes from "./routes/categoryRoutes.ts";
+import productRoutes from "./routes/productRoutes.ts";
 
 env.config();
 connectDB();
@@ -58,6 +59,7 @@ app.use(passport.session());
 
 app.use("/auth", authRoutes);
 app.use("/category", categoryRoutes);
+app.use("/product", productRoutes);
 
 app.listen(port, () => console.log("Server is listening on port: " + port));
 
