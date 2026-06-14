@@ -40,10 +40,9 @@ const productSchema = new Schema<IProduct>(
     availability: {
       inStock: { type: Number, required: true },
       sold: { type: Number, required: true, default: 0 },
-    },
-    dimensionAndWeight: {
+    }, dimensionAndWeight: {
       width: { type: Number, required: true },
-      lenght: { type: Number, required: true },
+      length: { type: Number, required: true },
       height: { type: Number, required: true },
       weight: { type: Number, required: true },
     },
